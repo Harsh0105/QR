@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QR">
-        <activity android:name=".MainAct"></activity>
+        <activity android:name=".UpdateProfile"></activity>
+        <activity android:name=".PasswordActivity" />
+        <activity android:name=".MainAct" />
         <activity android:name=".RegistrationAct" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,9 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainAct">
+    tools:context=".MainAct"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#00008577"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/menu" />
+
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="393dp"
+            android:layout_height="219dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bar"
+            app:srcCompat="@drawable/dummy_picture" />
+
+        <TextView
+            android:id="@+id/PT11"
+            android:layout_width="312dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="140dp"
+            android:fontFamily="@font/bungee_inline"
+            android:textAlignment="textStart"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/PT12"
+            android:layout_width="313dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/bungee_inline"
+            android:textAlignment="textStart"
+            android:textColor="#3F51B5"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/PT11"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/PT11"
+            app:layout_constraintTop_toBottomOf="@+id/PT11" />
+
+
+        <TextView
+            android:id="@+id/PT13"
+            android:layout_width="311dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/bungee_inline"
+            android:textAlignment="textStart"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/PT12"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/PT12"
+            app:layout_constraintTop_toBottomOf="@+id/PT12" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

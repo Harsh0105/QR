@@ -38,7 +38,7 @@
         android:layout_height="36dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/cairo_semibold"
-        android:text="Register Number:"
+        android:text="EMAIL:"
         android:textColor="#E61C1C"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,24 +46,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PT1" />
 
-    <EditText
-        android:id="@+id/ET1"
-        android:layout_width="298dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="201xxxxxxx"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PT2" />
-
     <TextView
         android:id="@+id/PT3"
         android:layout_width="196dp"
         android:layout_height="37dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="Password:"
         android:textColor="#ED2323"
@@ -71,17 +57,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET1" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
         android:id="@+id/Pass1"
         android:layout_width="296dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/ET1"
-        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PT3" />
 
@@ -101,8 +86,8 @@
 
     <Button
         android:id="@+id/B2"
-        android:layout_width="181dp"
-        android:layout_height="40dp"
+        android:layout_width="185dp"
+        android:layout_height="44dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/cairo_semibold"
@@ -141,4 +126,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/B3"
         app:layout_constraintVertical_bias="0.162" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="369dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PT2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

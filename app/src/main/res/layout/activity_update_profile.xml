@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateProfile">
+
+    <TextView
+        android:id="@+id/PT15"
+        android:layout_width="413dp"
+        android:layout_height="62dp"
+        android:fontFamily="@font/baloo"
+        android:text="UPDATE PROFILE INFORMATION"
+        android:textColor="#3F51B5"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <EditText
+        android:id="@+id/Update_Roll"
+        android:layout_width="258dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:fontFamily="@font/bungee_inline"
+        android:hint="Roll_No"
+        android:inputType="textPersonName"
+        android:textColor="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PT15" />
+
+    <EditText
+        android:id="@+id/Update_Mobile"
+        android:layout_width="255dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:fontFamily="@font/bungee_inline"
+        android:hint="Mobile"
+        android:inputType="phone"
+        android:textColor="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Update_Roll" />
+
+    <EditText
+        android:id="@+id/Update_Email"
+        android:layout_width="299dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:fontFamily="@font/bungee_inline"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Update_Mobile" />
+
+    <Button
+        android:id="@+id/Update"
+        android:layout_width="183dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="48dp"
+        android:text="UPDATE"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Update_Email" />
+
+    <Button
+        android:id="@+id/Return"
+        android:layout_width="207dp"
+        android:layout_height="41dp"
+        android:fontFamily="@font/baloo"
+        android:text="RETURN BACK"
+        android:textColor="#673AB7"
+        android:textSize="18sp"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Update"
+        app:layout_constraintVertical_bias="0.688" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

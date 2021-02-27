@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/home"/>
+        <item
+            android:id="@+id/history"
+            android:title="History"
+            android:icon="@drawable/history"/>
+        <item
+            android:id="@+id/Scan"
+            android:title="Scanner"
+            android:icon="@drawable/ic_baseline_qr_code_scanner_24"/>
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/logout"/>
+        <item
+            android:id="@+id/newUpdate"
+            android:title="Update User Information"
+            android:icon="@drawable/update"/>
+
+    </group>
+
+
+        <item
+            android:title="Navigate">
+
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/About_App"
+                    android:title="About Covid QR"
+                    android:icon="@drawable/aboutapp"/>
+                <item
+                    android:id="@+id/Alerts"
+                    android:title="Covid-19"
+                    android:icon="@drawable/covid"/>
+                </group>
+            </menu>
+
+        </item>
+
+
+</menu>
