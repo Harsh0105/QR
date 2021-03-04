@@ -97,7 +97,10 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
                 finish();
                 startActivity(new Intent(MainAct.this, MainActivity.class));
                 break;
-
+            case R.id.history:
+                finish();
+                startActivity(new Intent(MainAct.this, ScannerHistory.class));
+                break;
             case R.id.newUpdate:
                 startActivity(new Intent(MainAct.this, UpdateProfile.class));
                 break;

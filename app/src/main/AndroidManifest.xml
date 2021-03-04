@@ -13,7 +13,9 @@
         <activity android:name=".PasswordActivity" />
         <activity android:name=".MainAct" />
         <activity android:name=".RegistrationAct" />
+        <activity android:name=".ScannerHistory"/>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
