@@ -42,8 +42,16 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
         profileEmail=findViewById(R.id.PT12);
         profileNumber=findViewById(R.id.PT13);
         firebaseAuth=FirebaseAuth.getInstance();
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         firebaseDatabase=FirebaseDatabase.getInstance();
+
+
         DatabaseReference databaseReference= firebaseDatabase.getReference(firebaseAuth.getUid());
+        databaseReference.keepSynced(true);
+
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
