@@ -37,16 +37,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/menu" />
 
-<!--        <Button-->
-<!--            android:id="@+id/Add_item"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginHorizontal="100dp"-->
-<!--            android:text="Scan"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/PT11"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/imageView5" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/Add_item"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginHorizontal="100dp"-->
+        <!--            android:text="Scan"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/PT11"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/imageView5" />-->
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="393dp"
@@ -101,7 +101,16 @@
             app:layout_constraintTop_toBottomOf="@+id/PT12" />
 
 
+        <Button
+            android:id="@+id/scanbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="271dp"
+            tools:layout_editor_absoluteY="323dp"
+            android:text="PROCEED TO SCAN"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

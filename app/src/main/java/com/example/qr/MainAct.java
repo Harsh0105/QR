@@ -29,6 +29,7 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
     NavigationView navigationView;
     private Toolbar toolbar;
     private TextView profileRollNo, profileEmail, profileNumber;
+    private Button scanbutton;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
@@ -42,6 +43,7 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
         profileEmail=findViewById(R.id.PT12);
         profileNumber=findViewById(R.id.PT13);
         firebaseAuth=FirebaseAuth.getInstance();
+        scanbutton =  findViewById(R.id.scanbtn);
 
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
@@ -50,6 +52,17 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
 
         DatabaseReference databaseReference= firebaseDatabase.getReference(firebaseAuth.getUid());
         databaseReference.keepSynced(true);
+
+      scanbutton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent intent = new Intent(v.getContext(), ScannerHistory.class);
+              v.getContext().startActivity(intent);
+          }
+      });
+
+
+
 
 
 
