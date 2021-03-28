@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,17 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -50,6 +38,7 @@ public class ScannerHistory extends AppCompatActivity {
     DatabaseReference dbref;
     member Member;
     private TextView mTimeText;
+    private UserProfile userProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,11 +106,7 @@ public class ScannerHistory extends AppCompatActivity {
 
 
 
-
-
-
-
-    private void addItem() {
+    public void addItem() {
         String status1 = "Checked in";
         String status2 = "Checked out";
         String oldLocation;
@@ -140,38 +125,38 @@ public class ScannerHistory extends AppCompatActivity {
             //System.out.println(oldStatus);
         }
         if (oldStatus.equals(status2) || oldStatus.equals("empty")){
-            localUpdate(status1, newLocation);
+            localGet(status1, newLocation);
             serverUpdate(status1,newLocation);
 
         }
         else if(oldStatus.equals(status1)){
             if(newLocation.equals(oldLocation)){
-                localUpdate(status2, oldLocation);
+                localGet(status2, oldLocation);
                serverUpdate(status2,oldLocation);
 
             }
             else if (newLocation.equals(oldLocation) == false){
-                localUpdate(status1, newLocation);
+                localGet(status1, newLocation);
                 serverUpdate(status1,newLocation);
-                localUpdate(status2, oldLocation);
+                localGet(status2, oldLocation);
                 serverUpdate(status2,oldLocation);
 
 
             }
         }
     }
-    protected void serverUpdate(String status, String location){
+    public void serverUpdate(String status, String location){
         String name = location;
         String dateDay = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
         Member.setBuildingName(name);
         Member.setCheckStatus(status);
         Member.setDate(dateDay);
-        Member.setPersonName("hema");
+        Member.setPersonName("harsh");//userProfile.getUserRoll()); //change to name);
         dbref.push().setValue(Member);
        Toast.makeText(ScannerHistory.this, "data successfully added", LENGTH_SHORT).show();
 
     }
-    protected void localUpdate(String status, String location){
+    public void localGet(String status, String location){
         String name = location;
         String date = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
         ContentValues cv = new ContentValues();
@@ -182,7 +167,7 @@ public class ScannerHistory extends AppCompatActivity {
         mAdapter.swapCursor(getAllItems());
     }
 
-    private Cursor getAllItems() {
+    public Cursor getAllItems() {
         return mDatabase.query(
                 MyCovidEntry.CovidEntry.TABLE_NAME,
                 null,

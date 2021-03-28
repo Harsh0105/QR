@@ -56,7 +56,7 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
       scanbutton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              Intent intent = new Intent(v.getContext(), ScannerHistory.class);
+              Intent intent = new Intent(v.getContext(), ScannerHistory2.class);
               v.getContext().startActivity(intent);
           }
       });
