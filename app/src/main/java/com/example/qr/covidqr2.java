@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.google.firebase.database.FirebaseDatabase;
 
+import static com.google.firebase.database.FirebaseDatabase.getInstance;
+
 public class covidqr2 extends Application {
 
 
@@ -13,6 +15,6 @@ public class covidqr2 extends Application {
         super.onCreate();
 
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        getInstance().setPersistenceEnabled(true);
     }
 }

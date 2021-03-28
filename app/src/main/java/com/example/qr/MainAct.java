@@ -41,11 +41,15 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
 
         profileRollNo=findViewById(R.id.PT11);
         profileEmail=findViewById(R.id.PT12);
+
+
+
         profileNumber=findViewById(R.id.PT13);
+
         firebaseAuth=FirebaseAuth.getInstance();
         scanbutton =  findViewById(R.id.scanbtn);
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
 
         firebaseDatabase=FirebaseDatabase.getInstance();
 
