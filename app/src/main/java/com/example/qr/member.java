@@ -7,6 +7,8 @@ public class member {
     private String personName;
     private String Date;
 
+
+
     public member() {
     }
 
@@ -34,6 +36,8 @@ public class member {
         this.personName = personName;
     }
 
+
+
     public String getDate() {
         return Date;
     }
@@ -41,4 +45,6 @@ public class member {
     public void setDate(String date) {
         Date = date;
     }
+
+
 }

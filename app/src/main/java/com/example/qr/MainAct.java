@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,10 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
     private Button scanbutton;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
+    public String Xrollno;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +78,13 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserProfile userProfile = snapshot.getValue(UserProfile.class);
+
+              UserProfile userProfile = snapshot.getValue(UserProfile.class);
+              Xrollno = userProfile.getUserRoll();
                 profileRollNo.setText("RollNo:"+ userProfile.getUserRoll());
+            //    userProfile.setUserRoll(userProfile.userRoll);
                 profileEmail.setText("Email:"+ userProfile.getUserEmail());
+
                 profileNumber.setText("Mobile:"+ userProfile.getUserMobile());
             }
 
@@ -90,7 +99,7 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.bar);
 
-
+     //   Log.d("hi",Xrollno);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);

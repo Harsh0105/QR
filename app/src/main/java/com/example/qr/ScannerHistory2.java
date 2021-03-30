@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,13 +21,16 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 
 import static android.widget.Toast.LENGTH_SHORT;
@@ -37,15 +41,17 @@ public class ScannerHistory2 extends AppCompatActivity {
     private DbAdapter mAdapter;
     public String newlocation;
     public Button buttonAdd;
+    private String profileRollno;
     DatabaseReference dbref;
     member Member;
     private TextView mTimeText;
-    DataSnapshot snapshot;
-    private FirebaseAuth firebaseAuth;
+  //  DataSnapshot snapshot;
+    private FirebaseAuth firebaseAuth1;
     private FirebaseDatabase firebaseDatabase;
+    public String rollno1;
 
 
-//    private UserProfile userProfile = snapshot.getValue(UserProfile.class);
+   public UserProfile userProfile ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +73,10 @@ public class ScannerHistory2 extends AppCompatActivity {
         // FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         dbref = FirebaseDatabase.getInstance().getReference().child("member");
         //    dbref.keepSynced(true);
-
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        firebaseAuth1 = FirebaseAuth.getInstance();
+        DatabaseReference databaseReference= firebaseDatabase.getReference(Objects.requireNonNull(firebaseAuth1.getUid()));
+        databaseReference.keepSynced(true);
 
         buttonAdd = findViewById(R.id.button_add);
         final Activity myactivity = this;
@@ -84,6 +93,18 @@ public class ScannerHistory2 extends AppCompatActivity {
             }
         });
         buttonAdd.performClick();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserProfile userProfile = snapshot.getValue(UserProfile.class);
+                rollno1 = userProfile.getUserRoll();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
     @Override
@@ -153,13 +174,18 @@ public class ScannerHistory2 extends AppCompatActivity {
             }
         }
     }
+
+  //  DataSnapshot snapshot1;
     public void serverUpdate(String status, String location){
         String name = location;
         String dateDay = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+
+
+
         Member.setBuildingName(name);
         Member.setCheckStatus(status);
         Member.setDate(dateDay);
-        Member.setPersonName("harsh");//userProfile.getUserRoll()); //change to name
+        Member.setPersonName(rollno1);
         dbref.push().setValue(Member);
         Toast.makeText(ScannerHistory2.this, "data successfully added", LENGTH_SHORT).show();
 
