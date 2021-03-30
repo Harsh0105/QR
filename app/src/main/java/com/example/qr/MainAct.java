@@ -33,7 +33,7 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
     private Button scanbutton;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
-    public String Xrollno;
+  //  public String Xrollno;
 
 
 
@@ -80,7 +80,7 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
               UserProfile userProfile = snapshot.getValue(UserProfile.class);
-              Xrollno = userProfile.getUserRoll();
+         //     Xrollno = userProfile.getUserRoll();
                 profileRollNo.setText("RollNo:"+ userProfile.getUserRoll());
             //    userProfile.setUserRoll(userProfile.userRoll);
                 profileEmail.setText("Email:"+ userProfile.getUserEmail());
